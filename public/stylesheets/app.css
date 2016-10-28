@@ -1,0 +1,13 @@
+html {
+  background-color: limegreen;
+}
+
+body {
+  background-color: #d3d3d3;
+  padding: 16px 25px;
+  margin: 10px 25px;
+}
+
+header {
+  font-family: Georgia;
+}

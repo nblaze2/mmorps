@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MMORPS</title>
+    <link rel="stylesheet" href="/stylesheets/app.css">
+  </head>
+
+  <body>
+    <header>
+      <h1>Nick's MMORPS</h1>
+    </header>
+
+    <% if session[:message] %>
+      <%= session[:message] %>
+      <br><br>
+    <% end %>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Human: </td>
+          <td><%= session[:player_score].to_i %></td>
+        </tr>
+        <tr>
+          <td>Computer: </td>
+          <td><%= session[:computer_score].to_i %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Choose!</h2>
+
+    <% if session[:winner] == true %>
+      <form action="/reset" method="post">
+        <input type="submit" name="new_game" value="Play Again?">
+      </form>
+    <% else %>
+      <form action="/choose" method="post">
+        <input type="submit" name="choice" value="Rock">
+        <input type="submit" name="choice" value="Paper">
+        <input type="submit" name="choice" value="Scissors">
+      </form>
+    <% end %>
+  </body>
+</html>
